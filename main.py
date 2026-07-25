@@ -5,6 +5,7 @@ width, height = 1280, 720
 palette = palettes.all_palettes[4]
 bg = palette['bg']
 def main():
+    pygame.mixer.pre_init(44100, -16, 2, 512)
     pygame.init()
     screen = pygame.display.set_mode((width, height))
     clock = pygame.time.Clock()
