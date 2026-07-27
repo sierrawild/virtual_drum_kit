@@ -11,6 +11,8 @@ def main():
     clock = pygame.time.Clock()
     clap = pygame.mixer.Sound('samples\clap-808.wav')
     
+    spam = Test(20, palette['colors'][0], (width/2 + 50, height/2))
+    
     running = True
     while running:
         for event in pygame.event.get():
@@ -27,9 +29,9 @@ def main():
         screen.fill(bg)
         
         ### Render ###
-        spam = Test()
         spam.draw(screen)
-        # pygame.draw.circle(screen,palette['colors'][0], (width/2, height/2), 10)
+
+        pygame.draw.circle(screen,palette['colors'][0], (width/2, height/2), 10)
         pygame.draw.circle(screen,palette['colors'][1], (width/2, height/2 + 20), 10)
         pygame.draw.circle(screen,palette['colors'][2], (width/2, height/2 + 40), 10)
         pygame.draw.circle(screen,palette['colors'][3], (width/2, height/2 + 60), 10)
@@ -41,9 +43,13 @@ def main():
     pygame.quit()
 
 class Test:
-    print('Im a class')
+    def __init__(self, r, color, pos):
+        self.radius = r
+        self.color = color
+        self.position = pygame.Vector2(pos)
+    
     def draw(self, screen):
-        pygame.draw.circle(screen,palette['colors'][0], (width/2, height/2), 10)
+        pygame.draw.circle(screen, self.color, self.position, self.radius)
         
     # def __init__(self, radius, color, surface, pos):
     #     self.radius = radius
