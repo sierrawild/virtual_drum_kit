@@ -6,7 +6,8 @@ eighty_eight = {'name': '88',
     'hihat': [r'samples\hihat-acoustic01.wav', r'samples\hihat-acoustic02.wav'],
     'hihat-open': [r'samples\openhat-acoustic01.wav'],
     'crash': [r'samples\crash-acoustic.wav'],
-    'ride': [r'samples\ride-acoustic01.wav' , r'samples\ride-acoustic02.wav'],
+    'ride': [r'samples\ride-acoustic02.wav'],
+    'ride_be;;': [r'samples\ride-acoustic01.wav'],
 
     # drums
     'kick': [r'samples\kick-acoustic01.wav', r'samples\kick-acoustic02.wav'],

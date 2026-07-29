@@ -1,3 +1,5 @@
+import random
+
 soft_default = {
     "name": "soft default",
     "bg": "#F2F2EF",
@@ -119,3 +121,6 @@ all_palettes = [
     forest,
     sunset,
 ]
+
+def radondom_palette():
+    return random.choice(all_palettes)
