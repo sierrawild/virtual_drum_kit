@@ -24,6 +24,19 @@ class Instrument:
     def draw(self, r):
         p = pygame.Vector2(self.position)
         pygame.draw.circle(self.surface, self.color, p, r)
+    
+    def pretty_draw(self, accent_color):
+        p = pygame.Vector2(self.position)
+        
+        self.draw(self.radius) # original size
+        
+        # ring 1
+        pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.9)
+        self.draw(self.radius * 0.88)
+        # ring 2
+        pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
+        self.draw(self.radius * 0.78)
+        
         
     def play(self):
         '''Plays the sounds. Adjust the weights to set how oftern 2 diferent sounds play'''
@@ -64,3 +77,4 @@ class Instrument:
         self.draw(self.radius)
         self.mouse()
         self.size_reset()
+        return self

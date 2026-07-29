@@ -18,8 +18,8 @@ def main():
     clap = Instrument(sounds['clap'], surface=screen, color=palette['colors'][1], position=(width*0.1, height*0.9), radius=30, key=[pygame.K_SPACE])
 
     snare = Instrument(sounds['snare'], surface=screen, color=palette['colors'][0], position=(width/2, height*0.8), radius=100, key=[pygame.K_KP2, pygame.K_s])
-    kick1 = Instrument(sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.38, height*0.82), radius=50, key=[pygame.K_KP1, pygame.K_z])
-    kick2 = Instrument(sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.62, height*0.82), radius=50, key=[pygame.K_KP3, pygame.K_x])
+    kick1 = Instrument(sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.39, height*0.88), radius=48, key=[pygame.K_KP1, pygame.K_z])
+    kick2 = Instrument(sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.61, height*0.88), radius=48, key=[pygame.K_KP3, pygame.K_x])
 
     tom1 = Instrument(sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.43, height*0.55), radius=70, key=[pygame.K_KP5, pygame.K_d])
     tom2 = Instrument(sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.57, height*0.55), radius=70, key=[pygame.K_KP6, pygame.K_f])
@@ -51,7 +51,7 @@ def main():
         
         ### Render ###
         for instrument in instruments:
-            instrument.run()
+            instrument.run().pretty_draw(bg)
 
         
         pygame.display.flip()
