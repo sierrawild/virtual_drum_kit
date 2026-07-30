@@ -54,7 +54,7 @@ class Instrument:
         
     def size_reset(self):
         self.counter +=1
-        if self.counter == 5:
+        if self.counter >= 5:
             self.radius = self.original_radius
             self.counter = 0
     
