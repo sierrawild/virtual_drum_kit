@@ -11,6 +11,10 @@ class Instrument:
         self.counter = 0
         self.radius = radius
         self.original_radius = radius
+        # text
+        self.font = pygame.Font(None, 20)
+        self.text_surface = self.font.render('self', True, (255,255,255))
+        self.text_rect = self.text_surface.get_rect(center=position)
         
         # sets the sound1 and checks if the library has second sound. 
         # If it dosnt esist both sounds will be the same
@@ -37,6 +41,11 @@ class Instrument:
         pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
         self.draw(self.radius * 0.78)
         
+        self.surface.blit(self.text_surface, self.text_rect)
+    def print_name(self):
+        self.surface.blit(self.text_surface, self.text_rect)
+        # TODO make it a chainable method so you can get the name of the instrument 
+                    
         
     def play(self):
         '''Plays the sounds. Adjust the weights to set how oftern 2 diferent sounds play'''
@@ -73,8 +82,10 @@ class Instrument:
             for k in self.key:
                 if event.key == k:
                     self.play()
+                    
     def run(self):
         self.draw(self.radius)
+        self.print_name()
         self.mouse()
         self.size_reset()
         return self
