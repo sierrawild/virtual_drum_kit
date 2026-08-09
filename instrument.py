@@ -1,8 +1,9 @@
 import pygame, random, math
 
 class Instrument:
-    def __init__(self, sound, surface, color, position, radius, key, weights=[6,1]):
+    def __init__(self,name, sound, surface, color, position, radius, key, weights=[6,1]):
         
+        self.name = name
         self.weights = weights
         self.surface = surface
         self.color = color
@@ -11,6 +12,7 @@ class Instrument:
         self.counter = 0
         self.radius = radius
         self.original_radius = radius
+
         # text
         self.font = pygame.Font(None, 20)
         
@@ -38,14 +40,17 @@ class Instrument:
         # ring 2
         pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
         self.draw(self.radius * 0.78)
+        # name
+        self.print_name()
+
         
         return self
         
-    def print_name(self, name):
-        self.text_surface = self.font.render(name, True, (255,255,255))
+    def print_name(self):
+        '''Displays the name of the instrument'''
+        self.text_surface = self.font.render(self.name, True, (255,255,255))
         self.text_rect = self.text_surface.get_rect(center= self.position)
         self.surface.blit(self.text_surface, self.text_rect)
-        # TODO make it a chainable method so you can get the name of the instrument 
                     
         
     def play(self):
@@ -86,7 +91,6 @@ class Instrument:
                     
     def run(self):
         self.draw(self.radius)
-        # self.print_name()
         self.mouse()
         self.size_reset()
         return self
