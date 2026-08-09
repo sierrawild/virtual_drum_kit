@@ -21,8 +21,10 @@ def main():
     kick1 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.39, height*0.88), radius=48, key=[pygame.K_KP1, pygame.K_z])
     kick2 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.61, height*0.88), radius=48, key=[pygame.K_KP3, pygame.K_x])
 
-    tom1 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.43, height*0.55), radius=70, key=[pygame.K_KP5, pygame.K_d])
-    tom2 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.57, height*0.55), radius=70, key=[pygame.K_KP6, pygame.K_f])
+    tom1 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.40, height*0.60), radius=70, key=[pygame.K_KP5, pygame.K_d])
+    tom2 = Instrument('Tom', sounds['tom2'], surface=screen, color=palette['colors'][3], position=(width*0.52, height*0.54), radius=75, key=[pygame.K_KP6, pygame.K_f])
+    tom3 = Instrument('Tom', sounds['tom3'], surface=screen, color=palette['colors'][3], position=(width*0.63, height*0.65), radius=80, key=[pygame.K_KP6, pygame.K_f])
+    floor_tom = Instrument('Floor Tom', sounds['floor_tom'], surface=screen, color=palette['colors'][3], position=(width*0.73, height*0.82), radius=85, key=[pygame.K_KP6, pygame.K_f])
 
     crash = Instrument('Crash', sounds['crash'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.40), radius=75, key=[pygame.K_KP7, pygame.K_q])
     ride = Instrument('Ride', sounds['ride'], surface=screen, color=palette['colors'][4], position=(width*0.7, height*0.40), radius=80, key=[pygame.K_KP9, pygame.K_w])
@@ -30,7 +32,7 @@ def main():
     hihat = Instrument('HiHat', sounds['hihat'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.7), radius=60, key=[pygame.K_KP4, pygame.K_a])
 
 
-    instruments = [snare, clap, kick1, kick2, tom1, tom2, crash, ride, hihat]
+    instruments = [snare, clap, kick1, kick2, tom1, tom2, tom3, floor_tom, crash, ride, hihat]
 
     
     running = True
