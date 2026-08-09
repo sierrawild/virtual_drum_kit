@@ -16,9 +16,6 @@ eighty_eight = {'name': '88',
     'tom2': [r'samples\tom-acoustic2_01.mp3', r'samples\tom-acoustic2_02.mp3'],
     'tom3': [r'samples\tom-acoustic3_01.mp3', r'samples\tom-acoustic3_02.mp3'],
     'floor_tom': [r'samples\floor.mp3', r'samples\floor2.mp3'],
-    # 'tom2': [r'samples\tom-acoustic2_01.wav', r'samples\tom-acoustic2_02.wav'],
-    # 'tom3': [r'samples\tom-acoustic3_01.wav', r'samples\tom-acoustic3_02.wav'],
-    # 'floor_tom': [r'samples\flolor.wav', r'samples\floor2.wav'],
     }
 
 all_drum_sounds = [eighty_eight]

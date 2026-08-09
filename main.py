@@ -23,8 +23,8 @@ def main():
 
     tom1 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.40, height*0.60), radius=70, key=[pygame.K_KP5, pygame.K_d])
     tom2 = Instrument('Tom', sounds['tom2'], surface=screen, color=palette['colors'][3], position=(width*0.52, height*0.54), radius=75, key=[pygame.K_KP6, pygame.K_f])
-    tom3 = Instrument('Tom', sounds['tom3'], surface=screen, color=palette['colors'][3], position=(width*0.63, height*0.65), radius=80, key=[pygame.K_KP6, pygame.K_f])
-    floor_tom = Instrument('Floor Tom', sounds['floor_tom'], surface=screen, color=palette['colors'][3], position=(width*0.73, height*0.82), radius=85, key=[pygame.K_KP6, pygame.K_f])
+    tom3 = Instrument('Tom', sounds['tom3'], surface=screen, color=palette['colors'][3], position=(width*0.63, height*0.65), radius=80, key=[pygame.K_KP_PLUS, pygame.K_e])
+    floor_tom = Instrument('Floor Tom', sounds['floor_tom'], surface=screen, color=palette['colors'][3], position=(width*0.73, height*0.82), radius=85, key=[pygame.K_KP8, pygame.K_r])
 
     crash = Instrument('Crash', sounds['crash'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.40), radius=75, key=[pygame.K_KP7, pygame.K_q])
     ride = Instrument('Ride', sounds['ride'], surface=screen, color=palette['colors'][4], position=(width*0.7, height*0.40), radius=80, key=[pygame.K_KP9, pygame.K_w])
