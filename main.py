@@ -31,6 +31,7 @@ def main():
 
 
     instruments = [snare, clap, kick1, kick2, tom1, tom2, crash, ride, hihat]
+
     
     running = True
     while running:
@@ -42,8 +43,8 @@ def main():
                 if event.key == pygame.K_ESCAPE:
                     running = False
             
-            for instrument in instruments:
-                instrument.keybord_input(event)
+                for instrument in instruments:
+                    instrument.keybord_input(event)
         
 
                 
@@ -51,7 +52,7 @@ def main():
         
         ### Render ###
         for instrument in instruments:
-            instrument.run().pretty_draw(bg)
+            instrument.run().pretty_draw(bg).print_name(str(instruments[instrument])) # fix this
 
         
         pygame.display.flip()
