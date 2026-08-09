@@ -12,6 +12,7 @@ class Instrument:
         self.counter = 0
         self.radius = radius
         self.original_radius = radius
+        self.square = False
 
         # text
         self.font = pygame.Font(None, 20)
@@ -23,41 +24,53 @@ class Instrument:
             self.sound2 = pygame.mixer.Sound(sound[1])
         except IndexError:
             self.sound2 = pygame.mixer.Sound(sound[0])
-        
+    
+    def make_square(self):
+        self.square = True  
         
     def draw(self, r):
         p = pygame.Vector2(self.position)
+        
+        if self.square:
+            pygame.draw.rect(self.surface, self.color, (p[0] - r, p[1] - r, r*2, r*2), 0, 20)
+        
         pygame.draw.circle(self.surface, self.color, p, r)
     
     def pretty_draw(self, accent_color):
-        p = pygame.Vector2(self.position)
-        
-        self.draw(self.radius) # original size
-        
-        # ring 1
-        pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.9)
-        self.draw(self.radius * 0.88)
-        # ring 2
-        pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
-        self.draw(self.radius * 0.78)
-        # name
-        self.print_name()
+        if self.square:
+            self.print_name()
+        else:
+            p = pygame.Vector2(self.position)
+            
+            self.draw(self.radius) # original size
+            
+            # ring 1
+            pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.9)
+            self.draw(self.radius * 0.88)
+            # ring 2
+            pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
+            self.draw(self.radius * 0.78)
+            # name
+            self.print_name()
 
         
         return self
         
     def print_name(self):
         '''Displays the name of the instrument'''
+        label_pos = pygame.Vector2(self.position)
+        label_pos.y = label_pos.y - 10
+        
         self.text_surface = self.font.render(self.name, True, (255,255,255))
-        self.text_rect = self.text_surface.get_rect(center= self.position)
+        self.text_rect = self.text_surface.get_rect(center= label_pos)
         self.surface.blit(self.text_surface, self.text_rect)
         # display the key binding
+        label_pos.y = label_pos.y + 20
+        
         key_name = pygame.key.name(self.key[1])
         key_name = key_name.title()
         self.text_surface = self.font.render(key_name, True, (255,255,255))
-        key_bind_pos = pygame.Vector2(self.position)
-        key_bind_pos.y = key_bind_pos.y + 20
-        self.text_rect = self.text_surface.get_rect(center= key_bind_pos)
+        self.text_rect = self.text_surface.get_rect(center= label_pos)
         self.surface.blit(self.text_surface, self.text_rect)
                     
         

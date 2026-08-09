@@ -16,7 +16,8 @@ def main():
     
     # instruments initialization
     clap = Instrument('Clap', sounds['clap'], surface=screen, color=palette['colors'][1], position=(width*0.1, height*0.9), radius=40, key=[pygame.K_c, pygame.K_SPACE])
-
+    clap.make_square()
+    
     snare = Instrument('Snare', sounds['snare'], surface=screen, color=palette['colors'][0], position=(width/2, height*0.8), radius=100, key=[pygame.K_KP2, pygame.K_s])
     kick1 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.39, height*0.88), radius=48, key=[pygame.K_KP1, pygame.K_z])
     kick2 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.61, height*0.88), radius=48, key=[pygame.K_KP3, pygame.K_x])
