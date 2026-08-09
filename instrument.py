@@ -7,7 +7,7 @@ class Instrument:
         self.weights = weights
         self.surface = surface
         self.color = color
-        self.position = position
+        self.position = pygame.Vector2(position)
         self.key = key
         self.counter = 0
         self.radius = radius
@@ -50,6 +50,14 @@ class Instrument:
         '''Displays the name of the instrument'''
         self.text_surface = self.font.render(self.name, True, (255,255,255))
         self.text_rect = self.text_surface.get_rect(center= self.position)
+        self.surface.blit(self.text_surface, self.text_rect)
+        # display the key binding
+        key_name = pygame.key.name(self.key[1])
+        key_name = key_name.title()
+        self.text_surface = self.font.render(key_name, True, (255,255,255))
+        key_bind_pos = pygame.Vector2(self.position)
+        key_bind_pos.y = key_bind_pos.y + 20
+        self.text_rect = self.text_surface.get_rect(center= key_bind_pos)
         self.surface.blit(self.text_surface, self.text_rect)
                     
         
