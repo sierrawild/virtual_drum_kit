@@ -111,7 +111,7 @@ class Instrument:
                     self.play()
                     
     def run(self):
+        self.size_reset()
         self.draw(self.radius)
         self.mouse()
-        self.size_reset()
         return self
