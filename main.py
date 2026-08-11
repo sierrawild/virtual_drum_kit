@@ -12,28 +12,10 @@ def main():
     screen = pygame.display.set_mode((width, height))
     clock = pygame.time.Clock()
     
-    sounds = drum_sounds.eighty_eight
+    # font
+    font1 = pygame.Font(None, 26)
     
-    # instruments initialization
-    clap = Instrument('Clap', sounds['clap'], surface=screen, color=palette['colors'][1], position=(width*0.1, height*0.9), radius=40, key=[pygame.K_c, pygame.K_SPACE])
-    clap.make_square()
-    
-    snare = Instrument('Snare', sounds['snare'], surface=screen, color=palette['colors'][0], position=(width/2, height*0.8), radius=100, key=[pygame.K_KP2, pygame.K_s])
-    kick1 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.39, height*0.88), radius=48, key=[pygame.K_KP1, pygame.K_z])
-    kick2 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.61, height*0.88), radius=48, key=[pygame.K_KP3, pygame.K_x])
-
-    tom1 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.40, height*0.60), radius=70, key=[pygame.K_KP5, pygame.K_d])
-    tom2 = Instrument('Tom', sounds['tom2'], surface=screen, color=palette['colors'][3], position=(width*0.52, height*0.54), radius=75, key=[pygame.K_KP6, pygame.K_f])
-    tom3 = Instrument('Tom', sounds['tom3'], surface=screen, color=palette['colors'][3], position=(width*0.63, height*0.65), radius=80, key=[pygame.K_KP_PLUS, pygame.K_e])
-    floor_tom = Instrument('Floor Tom', sounds['floor_tom'], surface=screen, color=palette['colors'][3], position=(width*0.73, height*0.82), radius=85, key=[pygame.K_KP8, pygame.K_r])
-
-    crash = Instrument('Crash', sounds['crash'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.40), radius=75, key=[pygame.K_KP7, pygame.K_q])
-    ride = Instrument('Ride', sounds['ride'], surface=screen, color=palette['colors'][4], position=(width*0.7, height*0.40), radius=80, key=[pygame.K_KP9, pygame.K_w])
-    
-    hihat = Instrument('HiHat', sounds['hihat'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.7), radius=60, key=[pygame.K_KP4, pygame.K_a])
-
-
-    instruments = [snare, clap, kick1, kick2, tom1, tom2, tom3, floor_tom, crash, ride, hihat]
+    instruments = instument_init(palette, width, height, screen)
 
     
     running = True
@@ -53,6 +35,11 @@ def main():
                 
         screen.fill(bg)
         
+        # Menu
+        text_palette_surface = font1.render(palette['name'], True, "#FDFFFE")
+        text_palette_rect = text_palette_surface.get_rect(center= (width * 0.1, height * 0.1))
+        screen.blit(text_palette_surface, text_palette_rect)
+        
         ### Render ###
         for instrument in instruments:
             instrument.run().pretty_draw(bg)
@@ -64,7 +51,29 @@ def main():
     pygame.quit()
 
 
+def instument_init(palette, width, height, screen):
+    ''' instruments initialization '''
+    sounds = drum_sounds.eighty_eight
+    clap = Instrument('Clap', sounds['clap'], surface=screen, color=palette['colors'][1], position=(width*0.1, height*0.9), radius=40, key=[pygame.K_c, pygame.K_SPACE])
+    clap.make_square()
+    
+    snare = Instrument('Snare', sounds['snare'], surface=screen, color=palette['colors'][0], position=(width/2, height*0.8), radius=100, key=[pygame.K_KP2, pygame.K_s])
+    kick1 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.39, height*0.88), radius=48, key=[pygame.K_KP1, pygame.K_z])
+    kick2 = Instrument('Kick', sounds['kick'], surface=screen, color=palette['colors'][2], position=(width*0.61, height*0.88), radius=48, key=[pygame.K_KP3, pygame.K_x])
 
+    tom1 = Instrument('Tom', sounds['tom'], surface=screen, color=palette['colors'][3], position=(width*0.40, height*0.60), radius=70, key=[pygame.K_KP5, pygame.K_d])
+    tom2 = Instrument('Tom', sounds['tom2'], surface=screen, color=palette['colors'][3], position=(width*0.52, height*0.54), radius=75, key=[pygame.K_KP6, pygame.K_f])
+    tom3 = Instrument('Tom', sounds['tom3'], surface=screen, color=palette['colors'][3], position=(width*0.63, height*0.65), radius=80, key=[pygame.K_KP_PLUS, pygame.K_e])
+    floor_tom = Instrument('Floor Tom', sounds['floor_tom'], surface=screen, color=palette['colors'][3], position=(width*0.73, height*0.82), radius=85, key=[pygame.K_KP8, pygame.K_r])
+
+    crash = Instrument('Crash', sounds['crash'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.40), radius=75, key=[pygame.K_KP7, pygame.K_q])
+    ride = Instrument('Ride', sounds['ride'], surface=screen, color=palette['colors'][4], position=(width*0.7, height*0.40), radius=80, key=[pygame.K_KP9, pygame.K_w])
+    
+    hihat = Instrument('HiHat', sounds['hihat'], surface=screen, color=palette['colors'][4], position=(width*0.3, height*0.7), radius=60, key=[pygame.K_KP4, pygame.K_a])
+
+
+    instruments = [snare, clap, kick1, kick2, tom1, tom2, tom3, floor_tom, crash, ride, hihat]
+    return instruments
     
     
 if __name__ == '__main__':
