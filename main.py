@@ -1,13 +1,13 @@
-import pygame, palettes, drum_sounds
+import pygame, palettes, drum_sounds, random
 from instrument import Instrument
 
 def main():
     pygame.mixer.pre_init(44100, -16, 2, 512)
     pygame.init()
 
-    palette_index = 
     palettes_list = palettes.all_palettes
-    palette = palettes.radondom_palette()
+    palette_index = random.randint(0, len(palettes_list)-1)
+    palette = palettes_list[0]
     bg = palette['bg']
     
     width, height = 1280, 720
@@ -60,25 +60,16 @@ def main():
         button_R = pygame.Rect(menu_w -(10 + button_size),offset,button_size,button_size)
         
         # hover and click
-        mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
-        mouse_pos[0] -= menu_offset_x 
-        mouse_pos[1] -= menu_offset_y 
+        
         # click
         # Left button
-        plus_or_minus = -1
-        if button_L.collidepoint(mouse_pos) and pygame.mouse.get_just_pressed()[0]: # click
-            pygame.draw.rect(menu, palette['colors'][2],button_L.inflate(-5,-10), width=0, border_radius=5)
-            palette_index = palette_index + plus_or_minus
-            if palette_index < 0:
-                palette_index = len(palettes_list) 
-            print(f'{palette_index}  {len(palettes_list)}')
-            # palette = palettes_list((palette_index - 1 % len(palettes_list))) 
-        elif button_L.collidepoint(mouse_pos): # hover
-            pygame.draw.rect(menu, palette['colors'][2],button_L.inflate(10,10), width=0, border_radius=5) 
-        else: # draw button if nothing happen 
-            pygame.draw.rect(menu, palette['colors'][2],button_L, width=0, border_radius=5) 
+        palette_index = button(palettes_list, palette_index, palette, menu, button_L, -1, menu_offset_x, menu_offset_y) 
         # Right button
+        palette_index = button(palettes_list, palette_index, palette, menu, button_R, +1, menu_offset_x, menu_offset_y) 
         
+        palette = palettes_list[palette_index]
+        bg = palette['bg']
+        instruments = instument_init(palette, width, height, screen)
             
 
         
@@ -94,6 +85,26 @@ def main():
         ###
     pygame.quit()
 
+def button(palettes_list, palette_index, palette, menu, button_L, plus_or_minus, menu_offset_x, menu_offset_y):
+    mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
+    mouse_pos[0] -= menu_offset_x 
+    mouse_pos[1] -= menu_offset_y 
+    palette_index = palette_index
+    if button_L.collidepoint(mouse_pos) and pygame.mouse.get_just_pressed()[0]: # click
+        pygame.draw.rect(menu, palette['colors'][2],button_L.inflate(-5,-10), width=0, border_radius=5)
+        palette_index += plus_or_minus
+        print(palette_index)
+        if palette_index < 0:
+            palette_index = len(palettes_list) - 1 
+        elif palette_index >= len(palettes_list):
+            palette_index = 0
+        palette = palettes_list[palette_index]
+        
+    elif button_L.collidepoint(mouse_pos): # hover
+        pygame.draw.rect(menu, palette['colors'][2],button_L.inflate(10,10), width=0, border_radius=5) 
+    else: # draw button if nothing happen 
+        pygame.draw.rect(menu, palette['colors'][2],button_L, width=0, border_radius=5)
+    return palette_index
 
 def instument_init(palette, width, height, screen):
     ''' instruments initialization '''

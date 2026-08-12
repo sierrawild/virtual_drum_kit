@@ -1,7 +1,4 @@
-x = 1
-y = x
+import random
 
-x += 5
-
-print(y)
-print(x)
+for i in range(10):
+    print(random.randint(0,2))
