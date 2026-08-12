@@ -21,7 +21,7 @@ def main():
     # font
     font1 = pygame.Font(None, 26)
     
-    instruments = instument_init(palette, width, height, screen)
+    instruments = instrument_init(palette, width, height, screen)
 
     
     running = True
@@ -59,17 +59,16 @@ def main():
         button_L = pygame.Rect(10,offset,button_size,button_size)
         button_R = pygame.Rect(menu_w -(10 + button_size),offset,button_size,button_size)
         
-        # hover and click
-        
-        # click
+        old_index = palette_index
         # Left button
         palette_index = button(palettes_list, palette_index, palette, menu, button_L, -1, menu_offset_x, menu_offset_y) 
         # Right button
         palette_index = button(palettes_list, palette_index, palette, menu, button_R, +1, menu_offset_x, menu_offset_y) 
         
-        palette = palettes_list[palette_index]
-        bg = palette['bg']
-        instruments = instument_init(palette, width, height, screen)
+        if old_index != palette_index:
+            palette = palettes_list[palette_index]
+            bg = palette['bg']
+            instruments = instrument_init(palette, width, height, screen)
             
 
         
@@ -93,7 +92,6 @@ def button(palettes_list, palette_index, palette, menu, button_L, plus_or_minus,
     if button_L.collidepoint(mouse_pos) and pygame.mouse.get_just_pressed()[0]: # click
         pygame.draw.rect(menu, palette['colors'][2],button_L.inflate(-5,-10), width=0, border_radius=5)
         palette_index += plus_or_minus
-        print(palette_index)
         if palette_index < 0:
             palette_index = len(palettes_list) - 1 
         elif palette_index >= len(palettes_list):
@@ -106,7 +104,7 @@ def button(palettes_list, palette_index, palette, menu, button_L, plus_or_minus,
         pygame.draw.rect(menu, palette['colors'][2],button_L, width=0, border_radius=5)
     return palette_index
 
-def instument_init(palette, width, height, screen):
+def instrument_init(palette, width, height, screen):
     ''' instruments initialization '''
     sounds = drum_sounds.eighty_eight
     clap = Instrument('Clap', sounds['clap'], surface=screen, color=palette['colors'][1], position=(width*0.1, height*0.9), radius=40, key=[pygame.K_c, pygame.K_SPACE])
