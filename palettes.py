@@ -1,19 +1,19 @@
 import random
 
 soft_default = {
-    "name": "soft default",
+    "name": "soft_default",
     "bg": "#F2F2EF",
     "colors": ["#2EC4B6", "#FF9F1C", "#E71D36", "#7B61FF", "#3A86FF"],
 }
 
 monochrome_light = {
-    "name": "monochrome light",
+    "name": "monochrome_light",
     "bg": "#F5F5F5",
     "colors": ["#111111", "#333333", "#555555", "#777777", "#999999"],
 }
 
 monochrome_dark = {
-    "name": "monochrome dark",
+    "name": "monochrome_dark",
     "bg": "#101010",
     "colors": ["#F8F8F8", "#D9D9D9", "#B8B8B8", "#8C8C8C", "#666666"],
 }
@@ -55,7 +55,7 @@ studio = {
 }
 
 retro_drum_machine = {
-    "name": "retro drum machine",
+    "name": "retro_drum_machine",
     "bg": "#252422",
     "colors": ["#EB5E28", "#CCC5B9", "#FFFCF2", "#403D39", "#B08968"],
 }
@@ -73,19 +73,19 @@ industrial = {
 }
 
 warm_analog = {
-    "name": "warm analog",
+    "name": "warm_analog",
     "bg": "#2A1E1A",
     "colors": ["#F4A261", "#E76F51", "#E9C46A", "#A98467", "#F2E8CF"],
 }
 
 cold_digital = {
-    "name": "cold digital",
+    "name": "cold_digital",
     "bg": "#07111F",
     "colors": ["#E0FBFC", "#98C1D9", "#3D5A80", "#5BC0EB", "#00F5D4"],
 }
 
 minimal_red = {
-    "name": "minimal red",
+    "name": "minimal_red",
     "bg": "#F7F7F7",
     "colors": ["#111111", "#D90429", "#2B2D42", "#8D99AE", "#EDF2F4"],
 }
