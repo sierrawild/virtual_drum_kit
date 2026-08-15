@@ -7,11 +7,11 @@ def main():
 
     palettes_list = palettes.all_palettes
     palette_index = random.randint(0, len(palettes_list)-1)
-    palette = palettes_list[0]
+    palette = palettes_list[palette_index]
     bg = palette['bg']
     
     width, height = 1280, 720
-    menu_w, menu_h = 300, 100
+    menu_w, menu_h = 250, 80
     screen = pygame.display.set_mode((width, height))
     menu = pygame.Surface((menu_w, menu_h), pygame.SRCALPHA)
     menu_offset_x = 20
