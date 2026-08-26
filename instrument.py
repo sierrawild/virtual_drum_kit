@@ -1,4 +1,4 @@
-import pygame, random, math
+import pygame, random, math, pygame.gfxdraw
 
 class Instrument:
     def __init__(self,name, sound, surface, color, position, radius, key, weights=[6,1]):
@@ -34,7 +34,7 @@ class Instrument:
         if self.square:
             pygame.draw.rect(self.surface, self.color, (p[0] - r, p[1] - r, r*2, r*2), 0, 20)
         
-        pygame.draw.circle(self.surface, self.color, p, r)
+        pygame.draw.aacircle(self.surface, self.color, p, r)
     
     def pretty_draw(self, accent_color):
         if self.square:
@@ -45,10 +45,10 @@ class Instrument:
             self.draw(self.radius) # original size
             
             # ring 1
-            pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.9)
+            pygame.draw.aacircle(self.surface, accent_color, p, self.radius * 0.9)
             self.draw(self.radius * 0.88)
             # ring 2
-            pygame.draw.circle(self.surface, accent_color, p, self.radius * 0.8)
+            pygame.draw.aacircle(self.surface, accent_color, p, self.radius * 0.8)
             self.draw(self.radius * 0.78)
             # name
             self.print_name()
