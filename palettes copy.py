@@ -1,3 +1,4 @@
+
 soft_default = {
     "name": "soft default",
     "bg": "#F2F2EF",
@@ -100,6 +101,66 @@ sunset = {
     "colors": ["#FFD166", "#F77F00", "#EF476F", "#8338EC", "#06D6A0"],
 }
 
+neon_night = {
+    "name": "neon night",
+    "bg": "#0A0A0F",
+    "colors": ["#FF00FF", "#00FFFF", "#FFFF00", "#FF0080", "#00FF80"],
+}
+
+ocean = {
+    "name": "ocean",
+    "bg": "#0B132B",
+    "colors": ["#3A86FF", "#00B4D8", "#90E0EF", "#48CAE4", "#0077B6"],
+}
+
+ember = {
+    "name": "ember",
+    "bg": "#1A0F0A",
+    "colors": ["#FF6B35", "#F7C59F", "#EFEFEF", "#D62828", "#F77F00"],
+}
+
+cyberpunk = {
+    "name": "cyberpunk",
+    "bg": "#0D0221",
+    "colors": ["#FF2A6D", "#05D9E8", "#D1F7FF", "#7B2CBF", "#F9C80E"],
+}
+
+sage = {
+    "name": "sage",
+    "bg": "#F4F7F4",
+    "colors": ["#2D6A4F", "#40916C", "#52B788", "#74C69D", "#95D5B2"],
+}
+
+midnight = {
+    "name": "midnight",
+    "bg": "#0F0E17",
+    "colors": ["#FFFFFE", "#A7A9BE", "#FF8906", "#F25F4C", "#E53170"],
+}
+
+candy = {
+    "name": "candy",
+    "bg": "#FFF0F5",
+    "colors": ["#FF6B6B", "#FF9FF3", "#FECA57", "#48DBFB", "#1DD1A1"],
+}
+
+steel = {
+    "name": "steel",
+    "bg": "#1B1B1E",
+    "colors": ["#A0A0A0", "#4A4A4A", "#E0E0E0", "#FF4500", "#00CED1"],
+}
+
+lava = {
+    "name": "lava",
+    "bg": "#1C0A00",
+    "colors": ["#FF4500", "#FF8C00", "#FFD700", "#DC143C", "#8B0000"],
+}
+
+ice = {
+    "name": "ice",
+    "bg": "#E8F4F8",
+    "colors": ["#00BFFF", "#1E90FF", "#4169E1", "#87CEEB", "#B0E0E6"],
+}
+
 all_palettes = [
     soft_default,
     monochrome_light,
@@ -118,4 +179,14 @@ all_palettes = [
     minimal_red,
     forest,
     sunset,
+    neon_night,
+    ocean,
+    ember,
+    cyberpunk,
+    sage,
+    midnight,
+    candy,
+    steel,
+    lava,
+    ice,
 ]

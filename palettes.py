@@ -86,7 +86,7 @@ cold_digital = {
 minimal_red = {
     "name": "minimal red",
     "bg": "#F7F7F7",
-    "colors": ["#111111", "#D90429", "#2B2D42", "#8D99AE", "#EDF2F4"],
+    "colors": ["#111111", "#D90429", "#2B2D42", "#8D99AE", "#89DCFC"],
 }
 
 forest = {
@@ -100,6 +100,7 @@ sunset = {
     "bg": "#2B1B2F",
     "colors": ["#FFD166", "#F77F00", "#EF476F", "#8338EC", "#06D6A0"],
 }
+
 
 neon_night = {
     "name": "neon night",
@@ -164,29 +165,29 @@ ice = {
 all_palettes = [
     soft_default,
     monochrome_light,
-    monochrome_dark,
+    # monochrome_dark,
     vibrant,
     saturated,
     desaturated,
-    pastel,
+    # pastel,
     club,
     studio,
     retro_drum_machine,
     arcade,
     industrial,
-    warm_analog,
-    cold_digital,
+    # warm_analog,
+    # cold_digital,
     minimal_red,
     forest,
     sunset,
     neon_night,
     ocean,
-    ember,
-    cyberpunk,
+    # ember,
+    # cyberpunk,
     sage,
     midnight,
     candy,
     steel,
     lava,
-    ice,
+    # ice,
 ]
