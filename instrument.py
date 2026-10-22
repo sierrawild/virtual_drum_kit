@@ -1,4 +1,4 @@
-import pygame, random, math, pygame.gfxdraw
+import pygame, random, math
 
 class Instrument:
     def __init__(self,name, sound, surface, color, position, radius, key, weights=[6,1]):

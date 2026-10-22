@@ -37,7 +37,6 @@ def main():
                 for instrument in instruments:
                     instrument.keybord_input(event)
         
-
                 
         screen.fill(bg)
         
