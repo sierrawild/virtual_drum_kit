@@ -4,7 +4,7 @@ class Instrument:
     def __init__(self,name, sound, surface, color, position, radius, key, weights=None):
         
         self.name = name
-        self.weights = weights if weights not None else [6, 1]
+        self.weights = weights if weights is not None else [6, 1]
         self.surface = surface
         self.color = color
         self.position = pygame.Vector2(position)

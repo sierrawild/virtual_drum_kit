@@ -4,6 +4,7 @@ from instrument import Instrument
 def main():
     pygame.mixer.pre_init(44100, -16, 2, 512)
     pygame.init()
+    pygame.display.set_caption('Virtual Drum Kit')
 
     palettes_list = palettes.all_palettes
     palette_index = random.randint(0, len(palettes_list)-1)
