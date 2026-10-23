@@ -1,5 +1,7 @@
 # Virtual Drum Kit
 
+#### Video Demo:  https://youtu.be/h_Gbi1kDIK0
+
 An interactive drum kit built with Python and Pygame. Players can perform using either the keyboard or the mouse, with visual feedback, multiple drum samples, and switchable colour themes.
 
 The project was created as my CS50 Final Project and demonstrates object-oriented programming, event-driven design, audio playback, and graphical user interface development using Pygame.
