@@ -63,7 +63,9 @@ In the future, I might add a key-binding editor so users can customise the contr
 
 ## Screenshots
 
-Add screenshots here.
+![image 1](image.png)
+![image 2](image-1.png)
+![image 3](image-2.png)
 
 Example:
 
