@@ -1,10 +1,10 @@
 import pygame, random, math
 
 class Instrument:
-    def __init__(self,name, sound, surface, color, position, radius, key, weights=[6,1]):
+    def __init__(self,name, sound, surface, color, position, radius, key, weights=None):
         
         self.name = name
-        self.weights = weights
+        self.weights = weights if weights not None else [6, 1]
         self.surface = surface
         self.color = color
         self.position = pygame.Vector2(position)
